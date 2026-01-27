@@ -6,13 +6,49 @@
 @font-face {
     font-family: Inter;
     src: url('../../static/font/Inter/Inter.ttf');
- }
+}
 
-div, p, span, input, ul, li {
+div,
+p,
+span,
+input,
+ul,
+li {
     font-family: Inter, ui-sans-serif;
 }
 
 .p-tab-active {
     border-color: #147ee0 !important;
     color: #147ee0 !important;
+}
+
+/* ========================================
+   GLOBAL LAYOUT FIXES
+======================================== */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #000;
+    /* Fallback to black for any gaps */
+}
+
+#__nuxt {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Fix for layout wrapper */
+#__nuxt>div {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Ensure w-full class in layout covers full width */
+.w-full {
+    width: 100% !important;
+    max-width: 100% !important;
 }

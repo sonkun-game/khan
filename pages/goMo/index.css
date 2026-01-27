@@ -1,13 +1,23 @@
-.container {
-    width: 100vw;
-    height: 100vh;
+/* ========================================
+   GO MÕ PAGE - CONTAINER & BACKGROUND
+======================================== */
+.gomo-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
     background-color: #a17e5f;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center bottom;
+    overflow: hidden;
+    z-index: 1;
 }
 
-.camGayGoMo {
+.gomo-page.camGayGoMo {
     cursor: url("../cursor/go_mo.png") 64 78, pointer;
 }
 
@@ -19,6 +29,9 @@
     justify-content: center;
 }
 
+/* ========================================
+   MAIN ELEMENTS - ABSOLUTE POSITIONING
+======================================== */
 .pillow,
 .bong,
 .caiMo,
@@ -30,15 +43,16 @@
 .banCongDuc,
 .khayDungGay {
     position: absolute;
+    transition: transform 0.3s ease;
 }
 
 .caiMo {
     bottom: 21%;
-    left: 45%;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 10;
 }
 
-/* .caiMo:hover,  */
 .gayGoMo:hover {
     transform: scale(1.1);
     transition: all 0.3s ease-in-out;
@@ -46,19 +60,22 @@
 
 .pillow {
     bottom: 7%;
-    left: 39%;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 1;
 }
 
 .caiBan {
     bottom: 18%;
-    left: 30%;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 1;
 }
 
 .tuongPhat {
     bottom: 43%;
-    left: 40%;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 2;
 }
 
@@ -73,12 +90,14 @@
 }
 
 .caynen.right {
-    left: 62%;
+    right: 34%;
+    left: auto;
 }
 
 .bathuong {
     bottom: 43%;
-    left: 46%;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 4;
 }
 
@@ -100,6 +119,9 @@
     right: 5%;
 }
 
+/* ========================================
+   FLOATING TEXTS
+======================================== */
 .floating-texts-container {
     position: fixed;
     top: 0;
@@ -124,23 +146,311 @@
 .congDucText {
     position: absolute;
     top: 32%;
-    left: 16%
+    left: 16%;
 }
 
 .tamTinhText {
     position: absolute;
     top: 60%;
-    left: 16%
+    left: 16%;
 }
 
 .nghiepTieuText {
     position: absolute;
     top: 32%;
-    right: 12%
+    right: 12%;
 }
 
 .soLanText {
     position: absolute;
     top: 60%;
-    right: 20%
+    right: 20%;
+}
+
+/* ========================================
+   RESPONSIVE - LARGE TABLETS (max 1200px)
+======================================== */
+@media (max-width: 1200px) {
+    .caynen.left {
+        left: 30%;
+    }
+
+    .caynen.right {
+        right: 30%;
+    }
+
+    .gayGoMo {
+        right: 20%;
+    }
+
+    .khayDungGay {
+        right: 18%;
+    }
+
+    .banCongDuc {
+        right: 2%;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - TABLETS (max 1024px)
+======================================== */
+@media (max-width: 1024px) {
+    .caynen.left {
+        left: 25%;
+    }
+
+    .caynen.right {
+        right: 25%;
+    }
+
+    .banCongDuc {
+        bottom: 10%;
+        right: 2%;
+    }
+
+    .banCongDuc :deep(img) {
+        width: 280px !important;
+    }
+
+    .congDucText,
+    .tamTinhText,
+    .nghiepTieuText,
+    .soLanText {
+        font-size: 14px;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - SMALL TABLETS (max 768px)
+======================================== */
+@media (max-width: 768px) {
+    .container {
+        background-position: center center;
+    }
+
+    .tuongPhat :deep(img) {
+        width: 220px !important;
+    }
+
+    .caiBan :deep(img) {
+        width: 450px !important;
+    }
+
+    .pillow :deep(img) {
+        width: 280px !important;
+    }
+
+    .caiMo :deep(img) {
+        width: 120px !important;
+    }
+
+    .caynen.left {
+        left: 20%;
+    }
+
+    .caynen.right {
+        right: 20%;
+    }
+
+    .caynen :deep(img) {
+        width: 40px !important;
+    }
+
+    .bathuong :deep(img) {
+        width: 80px !important;
+    }
+
+    .gayGoMo {
+        right: 10%;
+        bottom: 10%;
+    }
+
+    .gayGoMo :deep(img) {
+        width: 70px !important;
+    }
+
+    .khayDungGay {
+        right: 8%;
+        bottom: 5%;
+    }
+
+    .khayDungGay :deep(img) {
+        width: 100px !important;
+    }
+
+    .banCongDuc {
+        bottom: 5%;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .banCongDuc :deep(img) {
+        width: 250px !important;
+    }
+
+    .congDucText,
+    .tamTinhText,
+    .nghiepTieuText,
+    .soLanText {
+        font-size: 12px;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE (max 480px)
+======================================== */
+@media (max-width: 480px) {
+    .tuongPhat {
+        bottom: 50%;
+    }
+
+    .tuongPhat :deep(img) {
+        width: 180px !important;
+    }
+
+    .caiBan :deep(img) {
+        width: 350px !important;
+    }
+
+    .pillow :deep(img) {
+        width: 220px !important;
+    }
+
+    .caiMo {
+        bottom: 25%;
+    }
+
+    .caiMo :deep(img) {
+        width: 100px !important;
+    }
+
+    .caynen.left {
+        left: 15%;
+        bottom: 50%;
+    }
+
+    .caynen.right {
+        right: 15%;
+        bottom: 50%;
+    }
+
+    .caynen :deep(img) {
+        width: 30px !important;
+    }
+
+    .bathuong {
+        bottom: 50%;
+    }
+
+    .bathuong :deep(img) {
+        width: 60px !important;
+    }
+
+    .gayGoMo {
+        right: 5%;
+        bottom: 12%;
+    }
+
+    .gayGoMo :deep(img) {
+        width: 60px !important;
+    }
+
+    .khayDungGay {
+        right: 3%;
+        bottom: 8%;
+    }
+
+    .khayDungGay :deep(img) {
+        width: 80px !important;
+    }
+
+    .banCongDuc {
+        bottom: auto;
+        top: 5%;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .banCongDuc :deep(img) {
+        width: 200px !important;
+    }
+
+    .congDucText,
+    .tamTinhText,
+    .nghiepTieuText,
+    .soLanText {
+        font-size: 10px;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - LANDSCAPE MOBILE
+======================================== */
+@media (max-height: 500px) and (orientation: landscape) {
+    .tuongPhat {
+        bottom: 35%;
+    }
+
+    .tuongPhat :deep(img) {
+        width: 150px !important;
+    }
+
+    .caiBan {
+        bottom: 10%;
+    }
+
+    .caiBan :deep(img) {
+        width: 350px !important;
+    }
+
+    .pillow {
+        bottom: 2%;
+    }
+
+    .pillow :deep(img) {
+        width: 200px !important;
+    }
+
+    .caiMo {
+        bottom: 15%;
+    }
+
+    .caiMo :deep(img) {
+        width: 80px !important;
+    }
+
+    .caynen.left,
+    .caynen.right {
+        bottom: 35%;
+    }
+
+    .caynen :deep(img) {
+        width: 25px !important;
+    }
+
+    .bathuong {
+        bottom: 35%;
+    }
+
+    .bathuong :deep(img) {
+        width: 50px !important;
+    }
+
+    .banCongDuc {
+        bottom: 5%;
+        right: 2%;
+        transform: none;
+    }
+
+    .banCongDuc :deep(img) {
+        width: 180px !important;
+    }
+
+    .congDucText,
+    .tamTinhText,
+    .nghiepTieuText,
+    .soLanText {
+        font-size: 9px;
+    }
 }

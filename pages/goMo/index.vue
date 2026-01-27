@@ -1,5 +1,5 @@
 <template>
-    <div class="container" id="container" ref="containerRef" :style="{ backgroundImage: `url(${bg})` }">
+    <div class="gomo-page" id="container" ref="containerRef" :style="{ backgroundImage: `url(${bg})` }">
         <div class="tuongPhat">
             <Image src="tuong/duc_phat.png" alt="phat" width="300" />
         </div>

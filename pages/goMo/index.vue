@@ -1,12 +1,5 @@
 <template>
     <div class="container-goMo" id="container" ref="containerRef" :style="{ backgroundImage: `url(${bg})` }">
-        <!-- SIDEBAR MENU -->
-        <SidebarMenu :isOpen="sidebarOpen" @close="sidebarOpen = false" />
-        <button class="goMo-menu-btn" @click="sidebarOpen = true">
-            <span class="goMo-menu-line"></span>
-            <span class="goMo-menu-line"></span>
-            <span class="goMo-menu-line"></span>
-        </button>
         <div class="bang">
             <p style="width: 280px; word-wrap: break-word; font-size: 14px; color: #73462d;">
                 - Click vào cái <b>gậy</b> và nhấn vào <b>chiếc mõ</b> hoặc nhấn <b>phím space</b> để tụng kinh <br>
@@ -69,7 +62,6 @@ import bg from '../../assets/bg.png';
 const { stats, incrementMerit, incrementPeace, incrementKarma, bigGo, level, rateLimitMessage } = useGameStats();
 import { onMounted, onUnmounted } from 'vue'
 import SmokeUp from '~/components/effects/SmokeUp.vue';
-import SidebarMenu from '~/components/SidebarMenu.vue';
 
 const sidebarOpen = ref(false);
 

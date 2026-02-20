@@ -1,7 +1,10 @@
 import axios from 'axios';
 
+const config = useRuntimeConfig()
+const GOOGLE_CLIENT_ID = config.public.googleClientId;
+
 const authApi = axios.create({
-    baseURL: import.meta.env.VITE_IDENTITY_API_URL,
+    baseURL: config.public.identityApiUrl,
     timeout: 10000
 });
 

@@ -13,38 +13,10 @@
                     <button class="close-btn" @click="close">✕</button>
                 </div>
                 <nav class="sidebar-nav">
-                    <a class="nav-item" @click="goTo('/home')">
-                        <span class="nav-icon">🏠</span>
-                        <span class="nav-label">Trang chủ</span>
-                    </a>
-                    <a class="nav-item active" @click="goTo('/goMo')">
-                        <span class="nav-icon">🔔</span>
-                        <span class="nav-label">Gõ Mõ</span>
-                    </a>
-                    <a class="nav-item disabled">
-                        <span class="nav-icon">🕯️</span>
-                        <span class="nav-label">Thắp Hương</span>
-                        <span class="nav-badge">Sắp ra mắt</span>
-                    </a>
-                    <a class="nav-item disabled">
-                        <span class="nav-icon">🏮</span>
-                        <span class="nav-label">Phóng Đăng</span>
-                        <span class="nav-badge">Sắp ra mắt</span>
-                    </a>
-                    <a class="nav-item disabled">
-                        <span class="nav-icon">🏺</span>
-                        <span class="nav-label">Hồ Tâm Sự</span>
-                        <span class="nav-badge">Sắp ra mắt</span>
-                    </a>
-                    <a class="nav-item disabled">
-                        <span class="nav-icon">🔮</span>
-                        <span class="nav-label">Huyền Học</span>
-                        <span class="nav-badge">Sắp ra mắt</span>
-                    </a>
-                    <a class="nav-item disabled">
-                        <span class="nav-icon">🐉</span>
-                        <span class="nav-label">Linh Vật</span>
-                        <span class="nav-badge">Sắp ra mắt</span>
+                    <a class="nav-item" v-for="item in menuList" @click="goTo(item.path)">
+                        <span class="nav-icon">{{ item.icon }}</span>
+                        <span class="nav-label">{{ item.name }}</span>
+                        <span v-if="item.status != 'done'" class="nav-badge">Sắp ra mắt</span>
                     </a>
                 </nav>
                 <div class="sidebar-footer">
@@ -68,16 +40,63 @@ const props = defineProps({
     }
 })
 
+const menuList = [
+    {
+        path: "/home",
+        icon: "🏠",
+        name: "Trang chủ",
+        status: "done",
+    },
+    {
+        path: "/goMo",
+        icon: "🔔",
+        name: "Gõ Mõ",
+        status: "done",
+    },
+    {
+        path: "",
+        icon: "🕯️",
+        name: "Thắp Hương",
+        status: "process",
+    },
+    {
+        path: "",
+        icon: "🏮",
+        name: "Phóng Đăng",
+        status: "process",
+    },
+    {
+        path: "",
+        icon: "🏺",
+        name: "Hồ Tâm Sự",
+        status: "process",
+    },
+    {
+        path: "",
+        icon: "🔮",
+        name: "Huyền Học",
+        status: "process",
+    },
+    {
+        path: "",
+        icon: "🐉",
+        name: "Linh Vật",
+        status: "process",
+    },
+]
+
 const emit = defineEmits(['close'])
-const router = useRouter()
+const router = useRouter();
 
 const close = () => {
     emit('close')
 }
 
 const goTo = (path) => {
-    close()
-    router.push(path)
+    if (path != "") {
+        close()
+        router.push(path)
+    }
 }
 
 const handleLogout = () => {

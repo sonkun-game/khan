@@ -26,7 +26,9 @@ export default defineNuxtConfig({
     public: {
       PAGE_SIZE: 5,
       PAGE_NUM: 0,
-      googleClientId: process.env.VITE_GOOGLE_CLIENT_ID
+      googleClientId: process.env.VITE_GOOGLE_CLIENT_ID,
+      identityApiUrl: process.env.VITE_IDENTITY_API_URL,
+      redirectUri: process.env.VITE_REDIRECT_URI
     }
   },
   primevue: {

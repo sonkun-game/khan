@@ -61,6 +61,7 @@ const handleGoogleCallback = async (hash) => {
         const idToken = params.get('id_token');
 
         if (idToken) {
+            console.log('Received ID token:', idToken);
             await handleCredential(idToken);
         }
     } catch (error) {
@@ -73,6 +74,7 @@ const handleCredential = async (idToken) => {
         console.log('Sending ID token to backend...');
         const token = await authService.loginWithGoogle(idToken);
 
+        console.log('Received token:', token);
         // Store JWT token (dùng key 'jwt_token' thống nhất toàn app)
         localStorage.setItem('jwt_token', token);
 
